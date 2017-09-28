@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SYM Template Activity</string>
+    <string name="good">Identifiant valide, bienvenue !</string>
+    <string name="psw">Mot de passe</string>
+    <string name="signin">Se connecter</string>
+    <string name="wrong">Email ou mot de passe incorrect</string>
+    <string name="wrongemail">Email invalide</string>
+    <string name="wronglogin">Echec de connexion</string>
+</resources>

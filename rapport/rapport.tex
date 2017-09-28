@@ -1,0 +1,77 @@
+% -----------------------------------------------------------------------
+% --- DOCUMENTS ---
+% -----------------------------------------------------------------------
+\documentclass[11pt, a4paper, french]{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae, pslatex}
+\usepackage[french]{babel}
+\selectlanguage{french} 
+
+
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{caption}
+
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{colortbl}
+
+\usepackage{hhline,tabu}
+
+% -----------------------------------------------------------------------
+% --- MARGES ---
+% -----------------------------------------------------------------------
+\usepackage{vmargin}
+\setpapersize{A4}
+\setmarginsrb{60pt}{50pt}{60pt}{25pt}{15pt}{25pt}{15pt}{25pt}
+
+% -----------------------------------------------------------------------
+% --- EN-TETE ET PIED DE PAGE ---
+% -----------------------------------------------------------------------
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhead[L]{SYM - Systèmes mobiles}
+\fancyhead[R]{IL - TIC - HEIG-VD \\ Automne 2017}
+\fancyfoot[C]{\thepage{}}
+
+\title{Systèmes mobiles \\ Laboratoire n°1 : Introduction aux activités Android}
+\author{Mathieu Monteverde, Sathiya Kirushnapillai, Zucca Michela}
+\date{Automne 2017}
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+% ***********************************************************************
+% *** DOCUMENT PRINCIPAL ***
+% ***********************************************************************
+\begin{document}
+
+	\maketitle
+    
+    \setlength{\parskip}{1em}
+	
+	\section*{Introduction}	
+
+    \section*{Questions}
+
+        Comment organiser les textes pour obtenir une application multi-langues (français, allemand,italien, langue par défaut : anglais)? Que se passe-t-il si une traduction est manquante? \par
+        
+        Android permet de gérer les textes et leurs traductions associées à l'aide de fichier \textit{strings.xml}. Pour chaque traduction, il suffit de créer un fichier \textit{strings.xml} et de le placer dans le dossier values-*. Par exemple, values-es pour l'espagnole.\par
+        
+        La langue par défaut se trouve dans le dossier values. C'est cette dernière qui est utilisée si la traduction est manquante.
+
+    
+	
+
+\end{document}
+
