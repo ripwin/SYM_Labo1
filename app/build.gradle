@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId "ch.heigvd.sym.template"
         minSdkVersion 14
-        targetSdkVersion 22
+        targetSdkVersion 26
         versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
     }
