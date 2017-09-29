@@ -7,7 +7,7 @@ Répondue dans le rapport latex
 
 *Comment utiliser une icône personnalisée dans les dialogues d'alerte ?*
 
-** Note : ** Nous avons utilisé un fichier .svg pour répondre à cette question. 
+**Note :** Nous avons utilisé un fichier .svg pour répondre à cette question. 
 
 Pour ajouter le pictogramme au projet, il faut faire un click droit sur le dossier res, puis cliquer sur New > Vector Asset > Local file > Sélectionner le fichier sur l'ordinateur. 
 
