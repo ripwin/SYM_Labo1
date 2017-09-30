@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/psw"
         android:inputType="textPassword" >
-        <requestFocus />
+
     </EditText>
 
     <Button
