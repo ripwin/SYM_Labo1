@@ -5,7 +5,7 @@ Répondue dans le rapport latex
 
 ## Question 2
 
-*Comment utiliser une icône personnalisée dans les dialogues d'alerte ?*
+**Comment utiliser une icône personnalisée dans les dialogues d'alerte ?**
 
 **Note :** Nous avons utilisé un fichier .svg pour répondre à cette question. 
 
@@ -25,11 +25,11 @@ https://developer.android.com/guide/topics/resources/drawable-resource.html
 
 
 ## Question 3
-Lorsque le login est réussi, vous êtes censé chaîner une autre Activity en utilisant un Intent. Si je presse le bouton "Back" de l'interface Android, que puis-je constater ? Comment faire pour que l'application se comporte de manière plus logique ?
+**Lorsque le login est réussi, vous êtes censé chaîner une autre Activity en utilisant un Intent. Si je presse le bouton "Back" de l'interface Android, que puis-je constater ? Comment faire pour que l'application se comporte de manière plus logique ?**
 
 Avec le code fourni, le fait d'appuyer sur le bouton "Back" de l'interface Android a pour effet de revenir à l'écran d'accueil d'Android. 
 
-On aimerait en effet plutôt revenir à l'écrand de login par exemple. Pour ce faire il suffit d'enlever la ligne 
+On aimerait en effet plutôt revenir à l'écran de login par exemple. Pour ce faire il suffit d'enlever l'instruction 
 
 ```java
 finish();
@@ -38,7 +38,7 @@ finish();
 qui a pour effet de terminer l'activité principale après l'appel à l'activité de succès. En enlevant cette ligne, l'activité principale reste sur la pile d'activités, et le bouton "Back" permet ainsi d'y revenir depuis l'activité de succès.
 
 ## Question 4
-*On pourrait imaginer une situation où cette seconde Activity fournit un résultat (par exemple l’IMEI ou une autre chaîne de caractères) que nous voudrions récupérer dans l'Activity de départ. Comment procéder ?*
+**On pourrait imaginer une situation où cette seconde Activity fournit un résultat (par exemple l’IMEI ou une autre chaîne de caractères) que nous voudrions récupérer dans l'Activity de départ. Comment procéder ?**
 
 Pour ce faire il faut dans un premier temps appeler l'activité secondaire avec la méthode 
 
