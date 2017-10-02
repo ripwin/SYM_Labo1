@@ -7,4 +7,5 @@
     <string name="wrong">Email ou mot de passe incorrect</string>
     <string name="wrongemail">Email invalide</string>
     <string name="wronglogin">Echec de connexion</string>
+    <string name="sendDataBack">Envoyer des données à Activité principale</string>
 </resources>

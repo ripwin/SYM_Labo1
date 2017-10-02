@@ -25,6 +25,7 @@
  */
 package ch.heigvd.sym.template;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -93,17 +94,29 @@ public class MainActivity extends AppCompatActivity {
 				String passwd = password.getText().toString();
 
 				if (isValid(mail, passwd)) {
+					/*
+						Initial code to start a new activity without expecting a result.
+					 */
+					/*
 					Intent intent = new Intent(v.getContext(), SuccessActivity.class);
                     intent.putExtra(Intent.EXTRA_TEXT, email.getText().toString());
                     startActivity(intent);
+                    */
+
+					/*
+						Answer to question 4 implementation
+					 */
+
+					Intent intent = new Intent(v.getContext(), SuccessActivity.class);
+					intent.putExtra(Intent.EXTRA_TEXT, email.getText().toString());
+					startActivityForResult(intent, 0);
+
 
                     Toast.makeText(
                         MainActivity.this,
                         getResources().getString(R.string.good),
                         Toast.LENGTH_LONG
                     ).show();
-
-					finish();
 				} else {
 					// Wrong combination, display pop-up dialog and stay on login screen
 					showErrorDialog(mail, passwd);
@@ -144,4 +157,23 @@ public class MainActivity extends AppCompatActivity {
         );
 	    alertbd.create().show();
 	}
+
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		if (resultCode == Activity.RESULT_OK) {
+
+			//Retrieve data in the intent
+			String activityResponse = data.getStringExtra("activityResponse");
+
+			Toast.makeText(
+					MainActivity.this,
+					activityResponse,
+					Toast.LENGTH_LONG
+			).show();
+		}
+	}
+
 }
