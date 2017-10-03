@@ -1,4 +1,4 @@
-# Réponses aux questions
+﻿# Réponses aux questions
 ## Question 1
 
 Répondue dans le rapport latex
@@ -23,6 +23,12 @@ https://developer.android.com/guide/topics/resources/drawable-resource.html
 29.09.2017
 
 
-
+## Question 3 Sat
+## Question 4 Mathieu
+## Question 5
+## Question 6
+## Question 7
+## Question 8
+## Question 9
 
 
