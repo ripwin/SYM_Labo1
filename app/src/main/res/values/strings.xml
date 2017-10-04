@@ -10,5 +10,6 @@
     <string name="wrong">Email or Password not recognized</string>
     <string name="good">Valid login, welcome !</string>
     <string name="title_activity_success" translatable="false">SuccessActivity</string>
+    <string name="sendDataBack">Send data back to main Activity</string>
 
 </resources>
