@@ -86,6 +86,14 @@ son code en conséquence.
 
 Dans notre cas, la méthode getDevice a été remplacé par la méthode getIMEI.
 
+Code :
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" /> (manifest)
+
+	 // Android Unique ID
+	String androidId = System.getString(this.getContentResolver(),Settings.Secure.ANDROID_ID);
+
+
+
 ## Question 8
 Il y a 3 grandes périodes dans le cycle de vie d'une application. La période dite active, qui peut être interrompu par la période
 suspendue qui elle même peut être interrompue par la période arrêté.
