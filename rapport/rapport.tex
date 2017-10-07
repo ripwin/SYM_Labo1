@@ -1,18 +1,11 @@
 % -----------------------------------------------------------------------
 % --- DOCUMENTS ---
 % -----------------------------------------------------------------------
-\documentclass[11pt, a4paper, french]{article}
-
-
+\documentclass[francais,12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{ae, pslatex}
 \usepackage[french]{babel}
 \selectlanguage{french} 
-
-
-\usepackage{fontspec}
-\setmainfont{Liberation Serif}
 
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -26,7 +19,7 @@
 \usepackage{hhline,tabu}
 
 % -----------------------------------------------------------------------
-% --- MARGES ---
+% --- MARGES ---sp
 % -----------------------------------------------------------------------
 \usepackage{vmargin}
 \setpapersize{A4}
@@ -43,7 +36,7 @@
 \fancyhead[R]{IL - TIC - HEIG-VD \\ Automne 2017}
 \fancyfoot[C]{\thepage{}}
 
-\title{Systèmes mobiles \\ Laboratoire n°1 : Introduction aux activités Android}
+\title{Systèmes mobiles \\ Laboratoire n1 : Introduction aux activités Android}
 \author{Mathieu Monteverde, Sathiya Kirushnapillai, Zucca Michela}
 \date{Automne 2017}
 
@@ -62,9 +55,11 @@
 	
 	\section*{Introduction}	
 
-    \section*{Questions}
+    \section*{Questions 1}
 
         Comment organiser les textes pour obtenir une application multi-langues (français, allemand,italien, langue par défaut : anglais)? Que se passe-t-il si une traduction est manquante? \par
+        
+        \subsection*{Réponse}
         
         Android permet de gérer les textes et leurs traductions associées à l'aide de fichier \textit{strings.xml}. Pour chaque traduction, il suffit de créer un fichier \textit{strings.xml} et de le placer dans le dossier values-*. Par exemple, values-es pour l'espagnole.\par
 
@@ -72,7 +67,147 @@
         
         La langue par défaut se trouve dans le dossier values. C'est cette dernière qui est utilisée si la traduction est manquante.
 
-    
+	\section*{Question 2}
+		Dans l'exemple fourni, sur le dialogue pop-up, nous affichons l'icône $android.R.drawable.ic_dialog_alert$, disponible dans le SDK Android mais qui n’est pas très bien adaptée visuellement à notre utilisation. Nous souhaitons la remplacer avec notre propre icône, veuillez indiquer comment procéder. Dans quel(s) dossier(s) devons-nous ajouter cette image ? Décrivez brièvement la logique derrière la gestion des ressources de type $« image »$ sur Android. 
+		
+		\subsection*{Réponse}
+		
+		\textit{Comment utiliser une icône personnalisée dans les dialogues d'alerte ?}
+		Note : Nous avons utilisé un fichier .svg pour répondre à cette question. \newline
+		
+		Pour ajouter le pictogramme au projet, il faut faire un click droit sur le dossier res, puis cliquer sur $New > Vector Asset > Local file >$ Sélectionner le fichier sur l'ordinateur. 
+		
+		Cela ajoute l'icône dans le dossier $res/drawable. $
+		
+		Android utilise des ressources $Drawable$. Une ressource $Drawable$ est un concept général pour un élément graphique qui peut être dessiné sur l'écran. Les images font partie de cette catégorie. 
+		
+		Android permet également de gérer des set d'icônes adaptés aux différentes densités d'écrans existantes sur le marché. On peut ainsi spécifier les images à utiliser pour les écrans à low-density, medium-density, high-density et Extra-high-density. 
+		
+		Sources:\newline		
+		Site développeur d'Android
+		https://developer.android.com/guide/topics/resources/drawable-resource.html 
+		29.09.2017
+		
+		
+		
+	\section*{Question 3}
+		Lorsque le login est réussi, vous êtes censé chaîner une autre Activity en utilisant un Intent. Si je presse le bouton "Back" de l'interface Android, que puis-je constater ? Comment faire pour que l'application se comporte de manière plus logique ?
+		
+		\subsection*{Réponse}
+		Avec le code fourni, le fait d'appuyer sur le bouton "Back" de l'interface Android a pour effet de revenir à l'écran d'accueil d'Android. 
+		
+		On aimerait en effet plutôt revenir à l'écran de login par exemple. Pour ce faire il suffit d'enlever l'instruction 
+		
+		```java
+		finish();
+		```
+		
+		qui a pour effet de terminer l'activité principale après l'appel à l'activité de succès. En enlevant cette ligne, l'activité principale reste sur la pile d'activités, et le bouton "Back" permet ainsi d'y revenir depuis l'activité de succès.
+		
+		
+	\section*{Question 4}
+		 On pourrait imaginer une situation où cette seconde Activity fournit un résultat (par exemple l’IMEI ou une autre chaîne de caractères) que nous voudrions récupérer dans l'Activity de départ. Comment procéder ? 
+		 
+		 \subsection*{Réponse}
+		 
+		 Pour ce faire il faut dans un premier temps appeler l'activité secondaire avec la méthode 
+		 
+		 ```java
+		 startActivityForResult(...);
+		 ```
+		 
+		 plutôt que 
+		 		 
+		 ```java
+		 startActivity(...);
+		 ```
+		 
+		 Cela permet, dans l'activité secondaire, de définir un résultat qui pourra être récupérer depuis l'activité de départ. Pour se faire il suffit de spécialiser la méthode 
+		 
+		 ```java
+		 onActivityResult(...);
+		 ```
+		 
+		 pour récupérer le contenu de ce résultat (voir le code correspondant dans MainActivity). On notera qu'il est important de vérifier le code de retour passé en paramètre de cette méthode avant de chercher à récupérer les données. Cela permet de savoir si l'activité s'est terminée en nous fournissant un résultat ou non.
+		 
+		 Pour effectuer cette manipulation, nous avons ajouté un bouton dans la SuccessActivity, dont le seul but est de terminer l'activité en retournant une String.
+		 
+		 
+		Sources: \newline		
+		 
+		 Stack Overflow
+		 https://stackoverflow.com/questions/13178056/get-data-from-another-activity\newline
+		 https://stackoverflow.com/questions/920306/sending-data-back-to-the-main-activity-in-android\newline
+		 https://developer.android.com/reference/android/app/Activity.html\#startActivityForResult(android.content.Intent, int)\newline
+		 02.10.2017
+		 
+		 
+	\section*{Question 5}
+		Vous noterez que la méthode$ getDeviceId()$ du TelephonyManager, permettant d’obtenir l’IMEI du téléphone, est dépréciée depuis la version 26 de l’API. Veuillez discuter de ce que cela implique lors du développement et de présenter une façon d’en tenir compte avec un exemple de code. 
+		
+		\subsection*{Réponse}
+		La dépréciation est, dans le domaine du développement logiciel, la situation où une ancienne fonctionnalité 
+		est considérée comme obsolète au regard d'un nouveau standard, et où, bien qu'elle soit conservée dans les 
+		versions plus récentes (par souci de rétro-compatibilité, et pour donner aux développeurs le temps de 
+		mettre leur code source en conformité), elle pourrait disparaître à l'avenir, si bien qu'il est 
+		recommandé d'en abandonner l'usage. <Source : wikipédia, https://fr.wikipedia.org/wiki/D%C3%A9pr%C3%A9ciation_(informatique)>
+		
+		L'utilisation de telle méthode est donc déconseiller car à tout moment l'application pourrait ne plus fonctionner.
+		Il est de la responsabilité du dévellopeur de se tenir informé des mis à jour sur les langages utilisées. Et de modifier
+		son code en conséquence. 
+		
+		Dans notre cas, la méthode getDevice a été remplacé par la méthode getIMEI.
+		
+		Code :
+		$<uses-permission android:name="android.permission.READ_PHONE_STATE" /> (manifest)$
+		
+		Android Unique ID
+		$String androidId = System.getString(this.getContentResolver(),Settings.Secure.ANDROID_ID);$
+		
+		
+	\section*{Question 6}
+		Dans l’activité de login, en plaçant le téléphone (ou l’émulateur) en mode paysage (landscape), nous constatons que les 2 champs de saisie ainsi que le bouton s’étendent sur toute la largeur de l’écran. Veuillez réaliser un layout spécifique au mode paysage qui permet un affichage mieux adapté et indiquer comment faire pour qu’il soit utilisé à l’exécution.  
+		
+		\subsection*{Réponse}
+		
+	\section*{Question 7}
+		Le layout de l’interface utilisateur de l’activité de login qui vous a été fourni a été réalisé avec un LinearLayout à la racine. Nous vous demandons de réaliser un layout équivalent utilisant cette fois-ci un RelativeLayout.  
+		
+		\subsection*{Réponse}
+		
+	\section*{Question 8}
+		Implémenter dans votre code les méthodes onCreate(), onStart(), onResume(), onPause(), onStop(), etc... qui marquent le cycle de vie d'une application Android, et tracez leur exécution. Décrivez brièvement à quelles occasions ces méthodes sont invoquées. Si vous aviez (par exemple) une connexion Bluetooth (ou des connexions bases de données, ou des capteurs activés) ouverte dans votre Activity, que faudrait-il peut-être faire, à votre avis (nous ne vous demandons pas de code ici) ? 
+		
+		\subsection*{Réponse}
+			Il y a 3 grandes périodes dans le cycle de vie d'une application. La période dite active, qui peut être interrompu par la période
+		suspendue qui elle même peut être interrompue par la période arrêté.
+		L'entrée dans chaque état est symbolisée par une méthode et la sortie de chaque état est symbolisée par une autre méthode. Ce que l'on itilialise dans le première
+		doit presque toujours être stoper dans la suivante.
+		
+		- onCreate : création de l'activité chargement des interfaces ou des données dans le bundle
+		- va vers onStart
+		- onStart : lance l'application
+		- va vers onResume
+		- onResume : l'activité s'éxecute au premier plan
+		- va vers onPause
+		- onPause : l'activité libère des ressources (mémoire, outils..)
+		- va vers onStop
+		- onStop : l'activité n'est plus visible (arrière plan)
+		- va vers onDestroy
+		- va ver onCreate : quand l'activité repasse au premier plan après avoir été tué
+		- va vers onRestart : quand l'activité repasse au premier plan
+		- onDestroy : l'activité est quitter normalement ou détruite par le système. En cas d'exception non catch 
+		- en cas de destruction d'une application pour une plus priotaire il est recommandé de sauvegarder les données
+		avec la méthode onSaveInstance(Bundle)
+			
+		ressource : https://openclassrooms.com/courses/creez-des-applications-pour-android/preambule-quelques-concepts-avances
+		
+		
+		
+	\section*{Question 9}
+		Facultatif – Question Bonus - S’il vous reste du temps, nous vous conseillons de le consacrer à mettre en place la résolution des permissions au runtime. 
+		
+		\subsection*{Réponse}
 	
 
 \end{document}

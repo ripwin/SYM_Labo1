@@ -97,7 +97,7 @@ Code :
 ## Question 8
 Il y a 3 grandes périodes dans le cycle de vie d'une application. La période dite active, qui peut être interrompu par la période
 suspendue qui elle même peut être interrompue par la période arrêté.
-L'entrée dans chaque état est symbolisé par une méthode et la sortie de chaque état est symblisé par une autre méthode. Ce que l'on itilialise dans le première
+L'entrée dans chaque état est symbolisée par une méthode et la sortie de chaque état est symbolisée par une autre méthode. Ce que l'on itilialise dans le première
 doit presque toujours être stoper dans la suivante.
 
 - onCreate : création de l'activité chargement des interfaces ou des données dans le bundle
@@ -116,7 +116,7 @@ doit presque toujours être stoper dans la suivante.
 	- en cas de destruction d'une application pour une plus priotaire il est recommandé de sauvegarder les données
 	  avec la méthode onSaveInstance(Bundle)
 
-Bundle est un objet sérialisable, sous forme de hash. 
+
 
 ressource : https://openclassrooms.com/courses/creez-des-applications-pour-android/preambule-quelques-concepts-avances
 
