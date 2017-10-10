@@ -211,11 +211,18 @@
 	
 		
 	\section*{Question 6}
-		Dans l’activité de login, en plaçant le téléphone (ou l’émulateur) en mode paysage (landscape), nous constatons que les 2 champs de saisie ainsi que le bouton s’étendent sur toute la largeur de l’écran. Veuillez réaliser un layout spécifique au mode paysage qui permet un affichage mieux adapté et indiquer comment faire pour qu’il soit utilisé à l’exécution.  
+		Dans l'activité de login, en plaçant le téléphone (ou l'émulateur) en mode paysage (landscape), nous constatons que les 2 champs de saisie ainsi que le bouton s'étendent sur toute la largeur de l'écran. Veuillez réaliser un layout spécifique au mode paysage qui permet un affichage mieux adapté et indiquer comment faire pour qu’il soit utilisé à l’exécution.  
 		
 		\subsection*{Réponse}
+        Afin d'avoir un layout spécifique en mode paysage, il suffit de créer un layout (fichier xml) ayant le même nom dans un dossier layout-land. Ainsi, Android utilisera les fichiers spécifiques à l'exécution.
+        
+        Pour ce laboratoire, nous avons un fichier authent.xml dans un dossier layout-land dans le dossier res.
 		
 		Source :
+    	\begin{itemize}
+            \item Site développeur d'Android \newline
+             https://developer.android.com/training/basics/supporting-devices/screens.html>
+        \end{itemize}
 		
 	\section*{Question 7}
 		Le layout de l’interface utilisateur de l’activité de login qui vous a été fourni a été réalisé avec un LinearLayout à la racine. Nous vous demandons de réaliser un layout équivalent utilisant cette fois-ci un RelativeLayout.  
