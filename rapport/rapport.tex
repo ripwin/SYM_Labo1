@@ -52,7 +52,7 @@
 	stringstyle=\color{mauve},
 	basicstyle=\footnotesize\ttfamily, % Standardschrift
 	numbers=left,               % Ort der Zeilennummern
-%	numberstyle=\tiny,          % Stil der Zeilennummern
+	numberstyle=\tiny,          % Stil der Zeilennummern
 	stepnumber=2,               % Abstand zwischen den Zeilennummern
 	numbersep=5pt,              % Abstand der Nummern zum Text
 	tabsize=4,                  % Groesse von Tabs
@@ -196,9 +196,27 @@
 		
 		{\color[rgb]{0,0.5,0.23}\textbf{Réponse}}
         
-		Une méthode dépréciée est une méthode considérée obsolète. Bien qu'elle soit conservée dans des versions plus récentes du langage, par soucis de rétro-compatibilité et pour donner le temps nécessaire aux développeurs pour modifier leurs codes, elle peut à tout moment disparaitre. Il est donc recommandé d'en abandonner l'usage. \newline
+		Une méthode dépréciée est une méthode considérée obsolète. Elle est conservée dans les versions plus récentes du langage pour deux raisons. La première, laisser le temps nécessaire aux développeurs pour modifier leur code. La seconde pour des raisons de rétro-compatibilité. Elle peut disparaitre à tout moment, il est déconseillé d'utiliser ces méthodes. 
 		
-		L'impact sur le code en utilisant une telle méthode est donc de prendre le risque de voir ladite disparaitre. Si tel est le cas rien ne garantit que l'application continuera de fonctionner.
+		L'impact sur le code en utilisant des méthodes dépréciées, est le risque qu'à tout moment celui-ci ne fonctionne plus correctement. Il est préférable d'utiliser les nouvelles méthodes de remplacement.\newline		
+		 \begin{lstlisting}[style=javaCode]
+		// MainActivity.java file
+		TelephonyManager telManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+		String imei="";
+		
+		if (android.os.Build.VERSION.SDK_INT >= 26)
+			imei = telManager.getImei();
+		else
+			imei = telManager.getDeviceId();
+				
+		// AndroidManifest.xml file
+		<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+		\end{lstlisting}
+	
+		\textbf{Source}
+	
+		\href{https://fr.wikipedia.org/wiki/Dépréciation_(informatique)}{Wikipédia - Dépréciation (informatique)}	
+
 		
 	\section*{Question 6}
 		Dans l'activité de login, en plaçant le téléphone (ou l'émulateur) en mode paysage (landscape), nous constatons que les 2 champs de saisie ainsi que le bouton s'étendent sur toute la largeur de l'écran. Veuillez réaliser un layout spécifique au mode paysage qui permet un affichage mieux adapté et indiquer comment faire pour qu'il soit utilisé à l'exécution.  
@@ -225,35 +243,35 @@ une structure utilisant un RelativeLayout. Grâce à ce layout, il suffit de dé
         
         \href{https://developer.android.com/guide/topics/ui/layout/relative.html}{Relative Layout - Android Studio Officiel}
 		
+		\newpage
 	\section*{Question 8}
 		Implémenter dans votre code les méthodes onCreate(), onStart(), onResume(), onPause(), onStop(), etc... qui marquent le cycle de vie d'une application Android, et tracez leur exécution. Décrivez brièvement à quelles occasions ces méthodes sont invoquées. Si vous aviez (par exemple) une connexion Bluetooth (ou des connexions bases de données, ou des capteurs activés) ouverte dans votre Activity, que faudrait-il peut-être faire, à votre avis (nous ne vous demandons pas de code ici) ? 
 		
 		{\color[rgb]{0,0.5,0.23}\textbf{Réponse}}
         
-		Il y a 3 grandes périodes dans le cycle de vie d'une application. La période dite active, qui peut être interrompu par la période
-		suspendue qui elle même peut être interrompue par la période arrêté.
-		L'entrée dans chaque état est symbolisée par une méthode et la sortie de chaque état est symbolisée par une autre méthode. Ce que l'on itilialise dans le première doit presque toujours être stoppé dans la suivante.
+		Il y a 3 grandes périodes dans le cycle de vie d'une application. La période dite active, qui peut être interrompu par la période	suspendue qui elle-même peut être interrompue par la période arrêté.
+		L'entrée dans chaque état est symbolisée par une méthode et la sortie de chaque état est symbolisée par une autre méthode. Ce que l'on initialise dans le premier état doit presque toujours être stoppé dans le suivant.
 		
 		\begin{itemize}
 			\item La période active : l'activité est simplement sur le dessus de la pile, c'est ce que l'utilisateur consulte et utilise. 
-			\item la période suspendue : débute avec onResume et se termine avec onPause. Dès que l'activité n'est plus complètement visible, par exemple l'apparition d'une boite de dialogue. Cette période est fréquente il faut donc qu'elle soit rapide et qu'elle utilise peu le processeur.
-			\item la période arrêté : l'activité n'est plus visible, mais elle n'est pas arrêté. Par exemple un changement d'application. Elle débute par la méthode onStop toujours précédé des méthode onResume et onPause. Elle se poursuit soit par onRestart (retour de l'application en premier plan) ou par la méthode onDestroy (pour libérer des ressources nécessaires) et devra repasser par la méthode onCreate lors du retour au premier plan.
+			\item la période suspendue : débute avec $onResume$ et se termine avec $onPause$. Dès que l'activité n'est plus complètement visible, par exemple l'apparition d'une boite de dialogue. Cette période est fréquente il faut donc qu'elle soit rapide et qu'elle utilise peu le processeur.
+			\item la période arrêté : l'activité n'est plus visible, mais elle n'est pas à proprement parlé arrêtée. Par exemple un changement d'application. Elle débute par la méthode $onStop$ toujours précédé des méthodes $onResume$ et $onPause$. Elle se poursuit soit par $onRestart$ (retour de l'application en premier plan) ou par la méthode $onDestroy$ (pour libérer des ressources nécessaires) et devra repasser par la méthode $onCreate$ lors du retour au premier plan.
 		\end{itemize}
 		
-		\begin{center}
-			\includegraphics[width=0.85\linewidth]{images/cycleVie}
-		\end{center}
-	\newpage
-		
+			\textbf{Description des méthodes :}
 		\begin{itemize}
 			\item onCreate : la première à être appelée. Cette méthode est utilisée au démarrage de l'activité pour initialiser les interfaces, récupérer les données (en base de données) et pour démarrer les activités d'arrière-plan qui s'exécute durant la durée de vie.
-			\item onRestart : cette méthode est appelée par une application en arrière plan. Elle permet de récupérer l'état de l'application et de le recharger lorsqu'elle repasse au premier plan.
-			\item onStart: cette méthode permet de démarrer l'application préalablement chargée par onCreate ou par onRestart.
-			\item onResume : cette méthode est appelé à chaque fois que l'activité passe au premier plan, ou à chaque lancement. Elle est utilisée pour initialiser les ressources qui seront coupées par la méthode onPause. 
-			\item onPause : cette méthode est appelé dès qu'une autre activité se place au premier plan, elle permet de libérer des ressources (mémoire, outils, processeur). Cette étape peut-être fréquemment appelée il est donc déconseillé de faire des sauvegardes en base de données, car celles-ci sont trop longues.
-			\item onStop : cette méthode est appelé lorsque l'application n'est plus du tout visible. C'est ici qu'il faut faire les sauvegardes en bases de données. L'état suivant pouvant être onDestroy en cas de besoin de ressources. 
-			\item onDestroy : cette méthode représente la fin de vie de l'activité. Elle peut être appelé délibérément (finish) ou par le système pour libérer de la mémoire nécessaire au bon fonctionnement de l'appareil.		
+			\item onRestart : cette méthode est appelée par une application en arrière-plan. Elle permet de récupérer l'état de l'application et de la recharger lorsqu'elle repasse au premier plan.
+			\item onStart: cette méthode permet de démarrer l'application préalablement chargée par $onCreate$ ou par $onRestart$.
+			\item onResume : cette méthode est appelée à chaque fois que l'activité passe au premier plan, ou à chaque lancement. Elle est utilisée pour initialiser les ressources qui seront coupées par la méthode $onPause$. 
+			\item onPause : cette méthode est appelée dès qu'une autre activité se place au premier plan, elle permet de libérer des ressources (mémoire, outils, processeur). Cette étape peut-être fréquemment appelée il est donc déconseillé de faire des sauvegardes en base de données, car celles-ci sont trop longues.
+			\item onStop : cette méthode est appelée lorsque l'application n'est plus du tout visible. C'est ici qu'il faut faire les sauvegardes en bases de données. L'état suivant pouvant être $onDestroy$ en cas de besoin de ressources. 
+			\item onDestroy : cette méthode représente la fin de vie de l'activité. Elle peut être appelé délibérément (finish) ou involontairement par le système pour libérer de la mémoire nécessaire au bon fonctionnement de l'appareil.\newline
 		\end{itemize}
+	
+		\begin{center}
+			\includegraphics[width=0.9\linewidth]{images/cycleVie}
+		\end{center}	
 		
 		\textbf{Source}
         
