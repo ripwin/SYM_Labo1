@@ -93,6 +93,16 @@ Code :
 	String androidId = System.getString(this.getContentResolver(),Settings.Secure.ANDROID_ID);
 
 
+## Question 7
+Pour répondre à cette question, l'interface de login fournie en format portrait a été remplacée par
+une structure utilisant un RelativeLayout. Grâce à ce layout, il suffit de définir pour chaque élément où il se situe par rapport à son parent ou à ses pairs. Le champ de mot de passe se situe donc par exemple en dessous du champ d'utilisateur. 
+
+**Sources**
+
+Android Developers
+https://developer.android.com/guide/topics/ui/layout/relative.html
+11.10.2017
+
 
 ## Question 8
 Il y a 3 grandes périodes dans le cycle de vie d'une application. La période dite active, qui peut être interrompu par la période
