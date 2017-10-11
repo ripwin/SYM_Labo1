@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,9 @@ import android.widget.Toast;
 import java.io.File;
 
 public class SuccessActivity extends AppCompatActivity {
+
+    // For logging purposes
+    private static final String TAG = SuccessActivity.class.getSimpleName();
 
     private TextView email = null;
     private TextView imei = null;
@@ -70,6 +74,41 @@ public class SuccessActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause(){
+        Log.i(TAG,"SuccesActivity onPause");
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume(){
+        Log.i(TAG, "SuccesActivity onResume");
+        super.onResume();
+    }
+
+    @Override
+    protected void onStart(){
+        Log.i(TAG, "SuccesActivity onStart");
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop(){
+        Log.i(TAG, "SuccesActivity onStop");
+        super.onStop();
+    }
+
+    @Override
+    protected void onRestart(){
+        Log.i(TAG, "SuccesActivity onRestart");
+        super.onRestart();
+    }
+
+    @Override
+    protected void onDestroy(){
+        Log.i(TAG, "SuccesActivity onDestroy");
+        super.onDestroy();
+    }
 
 
 }

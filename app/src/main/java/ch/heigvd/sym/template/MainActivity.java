@@ -190,6 +190,12 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	@Override
+	protected void onStart(){
+        Log.i(TAG, "MainActivity onStart");
+        super.onStart();
+    }
+
+	@Override
 	protected void onStop(){
 		Log.i(TAG, "MainActivity onStop");
 		super.onStop();
@@ -206,7 +212,5 @@ public class MainActivity extends AppCompatActivity {
 		Log.i(TAG, "MainActivity onDestroy");
 		super.onDestroy();
 	}
-
-
 
 }
