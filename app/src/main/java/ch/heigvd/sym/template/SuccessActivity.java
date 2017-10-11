@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
+import android.provider.CalendarContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,7 +47,7 @@ public class SuccessActivity extends AppCompatActivity {
 
         this.imei.setText(tel.getDeviceId());
 
-
+        // Display image
         File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         File file = new File(path, "dead.jpg");
         mImageView = (ImageView) findViewById(R.id.imageViewId);

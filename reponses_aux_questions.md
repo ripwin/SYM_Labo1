@@ -1,4 +1,4 @@
-# Réponses aux questions
+﻿# Réponses aux questions
 ## Question 1
 
 Répondue dans le rapport latex
@@ -22,6 +22,7 @@ Android permet également de gérer des set d'icônes adaptés aux différentes 
 Site développeur d'Android
 https://developer.android.com/guide/topics/resources/drawable-resource.html 
 29.09.2017
+
 
 
 ## Question 3
@@ -72,6 +73,50 @@ https://developer.android.com/reference/android/app/Activity.html#startActivityF
 02.10.2017
 
 
+## Question 5
+La dépréciation est, dans le domaine du développement logiciel, la situation où une ancienne fonctionnalité 
+est considérée comme obsolète au regard d'un nouveau standard, et où, bien qu'elle soit conservée dans les 
+versions plus récentes (par souci de rétro-compatibilité, et pour donner aux développeurs le temps de 
+mettre leur code source en conformité), elle pourrait disparaître à l'avenir, si bien qu'il est 
+recommandé d'en abandonner l'usage. <Source : wikipédia, https://fr.wikipedia.org/wiki/D%C3%A9pr%C3%A9ciation_(informatique)>
+
+L'utilisation de telle méthode est donc déconseiller car à tout moment l'application pourrait ne plus fonctionner.
+Il est de la responsabilité du dévellopeur de se tenir informé des mis à jour sur les langages utilisées. Et de modifier
+son code en conséquence. 
+
+Dans notre cas, la méthode getDevice a été remplacé par la méthode getIMEI.
+
+Code :
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" /> (manifest)
+
+	 // Android Unique ID
+	String androidId = System.getString(this.getContentResolver(),Settings.Secure.ANDROID_ID);
 
 
+
+## Question 8
+Il y a 3 grandes périodes dans le cycle de vie d'une application. La période dite active, qui peut être interrompu par la période
+suspendue qui elle même peut être interrompue par la période arrêté.
+L'entrée dans chaque état est symbolisée par une méthode et la sortie de chaque état est symbolisée par une autre méthode. Ce que l'on itilialise dans le première
+doit presque toujours être stoper dans la suivante.
+
+- onCreate : création de l'activité chargement des interfaces ou des données dans le bundle
+	- va vers onStart
+- onStart : lance l'application
+	- va vers onResume
+- onResume : l'activité s'éxecute au premier plan
+	- va vers onPause
+- onPause : l'activité libère des ressources (mémoire, outils..)
+	- va vers onStop
+- onStop : l'activité n'est plus visible (arrière plan)
+	- va vers onDestroy
+	- va ver onCreate : quand l'activité repasse au premier plan après avoir été tué
+	- va vers onRestart : quand l'activité repasse au premier plan
+- onDestroy : l'activité est quitter normalement ou détruite par le système. En cas d'exception non catch 
+	- en cas de destruction d'une application pour une plus priotaire il est recommandé de sauvegarder les données
+	  avec la méthode onSaveInstance(Bundle)
+
+
+
+ressource : https://openclassrooms.com/courses/creez-des-applications-pour-android/preambule-quelques-concepts-avances
 
