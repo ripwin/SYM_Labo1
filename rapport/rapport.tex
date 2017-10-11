@@ -194,16 +194,8 @@
 		\subsection*{Réponse}
 		Une méthode déprécié est une méthode considérée obsolète. Bien qu'elle soit conservé dans des versions plus récentes du langage, par soucis de rétro-compatibilité et pour donner le temps nécessaire aux développeurs pour modifier leurs codes, elle peut à tout moment disparaitre. Il est donc recommandé d'en abandonner l'usage. \newline
 		
-		L'impact sur le code en utilisant une méthode dépréciée est donc le risque de voir celle-ci disparaitre et que sont application ne fonctionne plus.\newpage
+		L'impact sur le code en utilisant une telle méthode est donc de prendre le risque de voir ladite disparaitre. Si tel est le cas rien ne garantit que l'application continuera de fonctionner.
 		
-		Dans notre cas le code devra être modifié comme suit :\newline
-		\begin{lstlisting}[style=javaCode]
-		// manifest 
-		<uses-permission android:name="android.permission.READ_PHONE_STATE" /> 
-		// java
-		String androidId = System.getString(this.getContentResolver(),Settings.Secure.ANDROID_ID);
-		\end{lstlisting}
-
 		Source :
 		\begin{itemize}
 			\item Wikipédia \newline https://fr.wikipedia.org/wiki/D\%C3\%A9pr\%C3\%A9ciation\_(informatique)>
