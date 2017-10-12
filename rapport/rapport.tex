@@ -249,7 +249,7 @@ une structure utilisant un RelativeLayout. Grâce à ce layout, il suffit de dé
 		
 		{\color[rgb]{0,0.5,0.23}\textbf{Réponse}}
         
-		Il y a 3 grandes périodes dans le cycle de vie d'une application. La période dite active, qui peut être interrompu par la période	suspendue qui elle-même peut être interrompue par la période arrêté.
+		Il y a 3 grandes périodes dans le cycle de vie d'une application. La période dite active, qui peut être interrompue par la période suspendue qui elle-même peut être interrompue par la période arrêtée.
 		L'entrée dans chaque état est symbolisée par une méthode et la sortie de chaque état est symbolisée par une autre méthode. Ce que l'on initialise dans le premier état doit presque toujours être stoppé dans le suivant.
 		
 		\begin{itemize}
@@ -260,11 +260,11 @@ une structure utilisant un RelativeLayout. Grâce à ce layout, il suffit de dé
 		
 			\textbf{Description des méthodes :}
 		\begin{itemize}
-			\item onCreate : la première à être appelée. Cette méthode est utilisée au démarrage de l'activité pour initialiser les interfaces, récupérer les données (en base de données) et pour démarrer les activités d'arrière-plan qui s'exécute durant la durée de vie.
-			\item onRestart : cette méthode est appelée par une application en arrière-plan. Elle permet de récupérer l'état de l'application et de la recharger lorsqu'elle repasse au premier plan.
+			\item onCreate : la première à être appelée. Cette méthode est utilisée au démarrage de l'activité pour initialiser les interfaces, récupérer les données (en base de données) et pour démarrer les activités d'arrière-plan qui s'exécutent durant la durée de vie.
+			\item onRestart : cette méthode est appelée par une application en arrière-plan. Elle permet de récupérer l'état de l'application et de le recharger lorsque l'application repasse au premier plan.
 			\item onStart: cette méthode permet de démarrer l'application préalablement chargée par $onCreate$ ou par $onRestart$.
 			\item onResume : cette méthode est appelée à chaque fois que l'activité passe au premier plan, ou à chaque lancement. Elle est utilisée pour initialiser les ressources qui seront coupées par la méthode $onPause$. 
-			\item onPause : cette méthode est appelée dès qu'une autre activité se place au premier plan, elle permet de libérer des ressources (mémoire, outils, processeur). Cette étape peut-être fréquemment appelée il est donc déconseillé de faire des sauvegardes en base de données, car celles-ci sont trop longues.
+			\item onPause : cette méthode est appelée dès qu'une autre activité se place au premier plan, elle permet de libérer des ressources (mémoire, outils, processeur). Cette méthode peut-être fréquemment appelée il est donc déconseillé de faire des sauvegardes en base de données, car celles-ci sont trop gourmandes en temps.
 			\item onStop : cette méthode est appelée lorsque l'application n'est plus du tout visible. C'est ici qu'il faut faire les sauvegardes en bases de données. L'état suivant pouvant être $onDestroy$ en cas de besoin de ressources. 
 			\item onDestroy : cette méthode représente la fin de vie de l'activité. Elle peut être appelé délibérément (finish) ou involontairement par le système pour libérer de la mémoire nécessaire au bon fonctionnement de l'appareil.\newline
 		\end{itemize}
