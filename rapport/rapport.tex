@@ -89,7 +89,7 @@
 \fancyfoot[C]{\thepage{}}
 
 \title{Systèmes mobiles \\ Laboratoire n\textordmasculine1 : Introduction aux activités Android}
-\author{Mathieu Monteverde, Sathiya Kirushnapillai, Zucca Michela}
+\author{Mathieu Monteverde, Sathiya Kirushnapillai, Michela Zucca}
 \date{Automne 2017}
 
 \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
@@ -112,7 +112,7 @@
         
         {\color[rgb]{0,0.5,0.23}\textbf{Réponse}}
         
-        Android permet de gérer les textes et leurs traductions associées à l'aide de fichier \textit{strings.xml}. Pour chaque traduction, il suffit de créer un fichier \textit{strings.xml} et de le placer dans le dossier values-*. Par exemple, values-es pour l'espagnole.\par
+        Android permet de gérer les textes et leurs traductions associées à l'aide de fichier \textit{strings.xml}. Pour chaque traduction, il suffit de créer un fichier \textit{strings.xml} et de le placer dans le dossier values-*. Par exemple, values-es pour l'espagnol.\par
 
         Cette structure correspond à la syntaxe créée par Android Studio en utilisant l'outil de traduction de langue. La langue par défaut se trouve dans le dossier values. C'est cette dernière qui est utilisée si la traduction est manquante.
         
@@ -123,11 +123,10 @@
         
 
 	\section*{Question 2}
-		Dans l'exemple fourni, sur le dialogue pop-up, nous affichons l'icône $android.R.drawable.ic\_dialog\_alert$, disponible dans le SDK Android mais qui n'est pas très bien adaptée visuellement à notre utilisation. Nous souhaitons la remplacer avec notre propre icône, veuillez indiquer comment procéder. Dans quel(s) dossier(s) devons-nous ajouter cette image? Décrivez brièvement la logique derrière la gestion des ressources de type $« image »$ sur Android. 
+		Dans l'exemple fourni, sur le dialogue pop-up, nous affichons l'icône $android.R.drawable.ic\_dialog\_alert$, disponible dans le SDK Android mais qui n'est pas très bien adaptée visuellement à notre utilisation. Nous souhaitons la remplacer avec notre propre icône, veuillez indiquer comment procéder. Dans quel(s) dossier(s) devons-nous ajouter cette image? Décrivez brièvement la logique derrière la gestion des ressources de type "image" sur Android. 
 		
 		{\color[rgb]{0,0.5,0.23}\textbf{Réponse}}
 		
-		\textit{Comment utiliser une icône personnalisée dans les dialogues d'alerte ?}
 		Note : Nous avons utilisé un fichier .svg pour répondre à cette question.
 		
 		Pour ajouter le pictogramme au projet, il faut faire un clic droit sur le dossier res, puis cliquer sur $New > Vector Asset > Local file >$ Sélectionner le fichier sur l'ordinateur. 
@@ -175,13 +174,13 @@
 		 startActivity(...);
 		 \end{lstlisting}
 		 
-		 Cela permet, dans l'activité secondaire, de définir un résultat qui pourra être récupérer depuis l'activité de départ. Pour se faire il suffit de spécialiser la méthode 
+		 Cela permet, dans l'activité secondaire, de définir un résultat qui pourra être récupéré depuis l'activité de départ. Pour se faire il suffit de spécialiser la méthode 
 		 
 		\begin{lstlisting}[style=javaCode]
 		 onActivityResult(...);
 		 \end{lstlisting}
 		 
-		 pour récupérer le contenu de ce résultat (voir le code correspondant dans MainActivity). On notera qu'il est important de vérifier le code de retour passé en paramètre de cette méthode avant de chercher à récupérer les données. Cela permet de savoir si l'activité s'est terminée en nous fournissant un résultat ou non.\newline
+		 pour récupérer le contenu de ce résultat (voir le code source correspondant dans MainActivity). On notera qu'il est important de vérifier le code de retour passé en paramètre de cette méthode avant de chercher à récupérer les données. Cela permet de savoir si l'activité s'est terminée en nous fournissant un résultat ou non.\newline
 		 
 		 Pour effectuer cette manipulation, nous avons ajouté un bouton dans la SuccessActivity, dont le seul but est de terminer l'activité en retournant une String.
 		 
