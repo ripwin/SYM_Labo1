@@ -174,13 +174,13 @@
 		 startActivity(...);
 		 \end{lstlisting}
 		 
-		 Cela permet, dans l'activité secondaire, de définir un résultat qui pourra être récupérer depuis l'activité de départ. Pour se faire il suffit de spécialiser la méthode 
+		 Cela permet, dans l'activité secondaire, de définir un résultat qui pourra être récupéré depuis l'activité de départ. Pour se faire il suffit de spécialiser la méthode 
 		 
 		\begin{lstlisting}[style=javaCode]
 		 onActivityResult(...);
 		 \end{lstlisting}
 		 
-		 pour récupérer le contenu de ce résultat (voir le code correspondant dans MainActivity). On notera qu'il est important de vérifier le code de retour passé en paramètre de cette méthode avant de chercher à récupérer les données. Cela permet de savoir si l'activité s'est terminée en nous fournissant un résultat ou non.\newline
+		 pour récupérer le contenu de ce résultat (voir le code source correspondant dans MainActivity). On notera qu'il est important de vérifier le code de retour passé en paramètre de cette méthode avant de chercher à récupérer les données. Cela permet de savoir si l'activité s'est terminée en nous fournissant un résultat ou non.\newline
 		 
 		 Pour effectuer cette manipulation, nous avons ajouté un bouton dans la SuccessActivity, dont le seul but est de terminer l'activité en retournant une String.
 		 
